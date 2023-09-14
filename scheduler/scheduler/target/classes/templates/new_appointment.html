@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="ISO-8859-1">
+  <title>New Appointment</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="../css/my-login.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+
+	<style>
+		body {
+			background-color: #f2f8ff;
+		}
+		table {
+			border: 1px solid #ddd;
+			border-collapse: collapse;
+			width: 100%;
+			margin-bottom: 1rem;
+			background-color: #e6f2ff;
+		}
+		th, td {
+			padding: 0.75rem;
+			text-align: left;
+			border: 1px solid #ddd;
+			font-size: 16px;
+		}
+		th {
+			background-color: #003366;
+			color: #fff;
+		}
+		button {
+			background-color: #003366;
+			border: none;
+			color: #fff;
+			padding: 0.5rem 1rem;
+			font-size: 16px;
+			cursor: pointer;
+		}
+	</style>
+		
+</head>
+<body>
+	<div align="center">
+		<h1>Book new appointment</h1>
+		<br />
+<form action="#" th:action="@{/save}" method="post">
+  <table border="0" cellpadding="10">
+    <tr>
+      <td>Patient First Name:</td>
+      <td><input type="text" placeholder="First Name" required th:field="*{patient.firstName}" /></td>
+    </tr>
+    <tr>
+      <td>Patient Last Name:</td>
+      <td><input type="text" placeholder="Last Name" required th:field="*{patient.lastName}" /></td>
+    </tr>
+    <tr>
+      <td>Patient Phone:</td>
+      <!--<td><input type="text" placeholder="First Name" required th:field="*{patient.phone}" /></td>-->
+
+<td>
+  <input type="text" placeholder="Phone Number" required th:field="*{patient.phone}"
+    oninput="javascript: this.value = this.value.slice(0, 10).replace(/[^0-9]/g, '');"
+    pattern="[0-9]{10}"
+    title="Please enter a 10-digit phone number" />
+</td>
+
+
+
+    </tr>
+    <tr>
+      <td>Patient Email:</td>
+      <!--<td><input type="text" th:field="*{patient.email}" /></td>-->
+      <td>
+  	<input type="email" placeholder="Email" required th:field="*{patient.email}" />
+	</td>
+
+    </tr>
+    <tr>
+      <td>Appointment Date:</td>
+      <td>
+<input type="date" placeholder="Appointment Date" required th:field="*{appointment.appDate}" />
+
+    </tr>
+    <tr>
+      <td>Appointment Time:</td>
+      <td>
+  <select th:field="*{appointment.appTime}" required>
+    <option value="">Select a time</option>
+    <option value="08:00:00">8:00 AM</option>
+    <option value="09:00:00">9:00 AM</option>
+    <option value="10:00:00">10:00 AM</option>
+    <option value="11:00:00">11:00 AM</option>
+    <option value="12:00:00">12:00 PM</option>
+    <option value="13:00:00">1:00 PM</option>
+    <option value="14:00:00">2:00 PM</option>
+    <option value="15:00:00">3:00 PM</option>
+    <option value="16:00:00">4:00 PM</option>
+    <option value="17:00:00">5:00 PM</option>
+  </select>
+</td>
+
+    </tr>
+    <tr>
+      <td>Provider:</td>
+      <td>
+  <select th:field="*{appointment.provider}" required>
+    <option value="">Choose a Provider</option>
+    <option value="Dr. Anthony Fauci">Anthony Fauci</option>
+    <option value="Dr. Anitha Paul">Anitha Paul</option>
+    <option value="Dr. Nadeem Iqbal">Nadeem Iqbal</option>
+  </select>
+</td>
+    </tr>
+    <tr>
+      <td>Symptoms</td>
+      <td>
+  <textarea th:field="*{appointment.symptoms}" required rows="3" cols="60"></textarea>
+</td>
+
+    </tr>
+    <tr>
+	  <div class="button-container">
+      <td colspan="2"><button type="submit">Save</button></td>
+       
+	  </div>
+    </tr>
+    <tr>
+
+   
+
+
+  </table>
+</form>
+	</div>
+	
+	<button onclick="location.href='/'">Home</button>
+</body>
+</html>
