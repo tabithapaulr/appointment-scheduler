@@ -9,6 +9,6 @@ Thymeleaf: A templating engine for HTML.
 
 The application has the following features:
 
-Create an appointment: Office professionals can create an appointment by specifying the patient's name, the provider's name, the date and time of the appointment, and the appointment type.
-Delete an appointment: Office professionals can delete an appointment.
-View appointments: Office professionals can view all appointments.
+*Create an appointment: Office professionals can create an appointment by specifying the patient's name, the provider's name, the date and time of the appointment, and the appointment type.
+*Delete an appointment: Office professionals can delete an appointment.
+*View appointments: Office professionals can view all appointments.
